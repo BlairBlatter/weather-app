@@ -1,0 +1,88 @@
+body {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(242, 235, 243) 0%,
+    rgb(234, 241, 249) 90.1%
+  );
+}
+.container {
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+}
+.weather-app {
+  background-color: white;
+  padding: 40px;
+  margin: 40px 0px;
+  max-width: 600px;
+  min-width: 600px;
+  max-height: 600px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.main-image {
+  margin: 40px 0px;
+  padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+form {
+  display: block;
+  text-align: right;
+}
+input {
+  outline: none;
+  padding: 5px;
+  border: 0;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+
+p {
+  text-align: left;
+  margin: 0 auto;
+  padding: 0px 0px 0px 25px;
+  font-size: 30px;
+}
+.city-name {
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  margin: 0;
+  padding: 0px 0px 10px 25px;
+}
+
+.current-weather {
+  display: flex;
+  padding: 0px 0px 0px 25px;
+}
+.current-temperature {
+  margin: 0;
+  padding: 0px 0px 40px 0px;
+  color: #f4dd12;
+  font-size: 90px;
+  line-height: 1;
+  font-weight: lighter;
+}
+.imperial-metric {
+  margin: 0;
+  padding: 0px 40px 0px 0px;
+  color: black;
+  font-size: 15px;
+}
+.container-text-center {
+  font-size: 14px;
+  text-align: center;
+  line-height: 50px;
+  padding: 0px 25px 25px 25px;
+}
+
+.current-icon {
+  color: #f4dd12;
+  font-size: 90px;
+}
+.sun-icon {
+  color: black;
+}
+.cloud-icon {
+  color: black;
+}
+.wind-icon {
+  color: black;
+}
