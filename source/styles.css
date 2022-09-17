@@ -88,3 +88,9 @@ p {
 .wind-icon {
   color: black;
 }
+.coded-by {
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
+  padding: 0px 90px;
+  margin: 0 auto;
+}
