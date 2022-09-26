@@ -35,7 +35,14 @@ function displayWeather(response) {
   document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.main.temp
   );
-
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
+  fahrenheitTemperature = response.data.main.temp;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  fahrenheitTemperature = response.data.main.temp;
   fahrenheitTemperature = response.data.main.temp;
 }
 
