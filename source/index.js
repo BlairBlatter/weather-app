@@ -44,6 +44,42 @@ function displayWeather(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   fahrenheitTemperature = response.data.main.temp;
   fahrenheitTemperature = response.data.main.temp;
+
+  let cityDescription = response.data.weather[0].description;
+  let currentIcon = document.querySelector("#current-icon");
+  if (cityDescription === "clear sky") {
+    currentIcon.innerHTML = '<i class="bi bi-sun"></i>';
+  }
+  if (cityDescription === "overcast clouds") {
+    currentIcon.innerHTML = '<i class="bi bi-clouds"></i>';
+  }
+  if (cityDescription === "moderate rain") {
+    currentIcon.innerHTML = '<i class="bi bi-cloud-rain-heavy"></i>';
+  }
+  if (cityDescription === "thunderstorm") {
+    currentIcon.innerHTML = '<i class="bi bi-lightning"></i>';
+  }
+  if (cityDescription === "rain") {
+    currentIcon.innerHTML = '<i class="bi bi-cloud-rain-heavy"></i>';
+  }
+  if (cityDescription === "light rain") {
+    currentIcon.innerHTML = '<i class="bi bi-cloud-drizzle"></i>';
+  }
+  if (cityDescription === "few clouds") {
+    currentIcon.innerHTML = '<i class="bi bi-cloud"></i>';
+  }
+  if (cityDescription === "broken clouds") {
+    currentIcon.innerHTML = '<i class="bi bi-cloud"></i>';
+  }
+  if (cityDescription === "fog") {
+    currentIcon.innerHTML = '<i class="bi bi-cloud-fog"></i>';
+  }
+  if (cityDescription === "wind") {
+    currentIcon.innerHTML = '<i class="bi bi-wind"></i>';
+  }
+  if (cityDescription === "snow") {
+    currentIcon.innerHTML = '<i class="bi bi-snow"></i>';
+  }
 }
 
 function search(event) {
