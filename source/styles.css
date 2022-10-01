@@ -100,6 +100,27 @@ li {
 .wind-icon {
   color: black;
 }
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: #000;
+  font-family: "Lato", sans-serif;
+  line-height: 40px;
+}
+
+.weather-forecast-date {
+  font-size: 14px;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.5;
+}
+
+.weather-forecast-temperatures {
+  font-size: 14px;
+}
+
 .coded-by {
   font-family: "Playfair Display", serif;
   font-size: 14px;

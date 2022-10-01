@@ -29,6 +29,31 @@ function showCurrentTime(currentTime) {
   let month = months[monthIndex];
   return `${day} ${date} <br /> ${month}  <br /> <small><small><small>${hours}:${minutes}`;
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="weather-forecast-date">${day}</div>
+       <i class="bi bi-sun"></i>
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> 86° </span>
+          <span class="weather-forecast-temperature-min"> 70° </span>
+        </div>
+      </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
 
 function displayWeather(response) {
   document.querySelector("#city-name").innerHTML = response.data.name;
@@ -119,3 +144,4 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
+displayForecast();
