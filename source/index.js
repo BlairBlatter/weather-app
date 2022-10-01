@@ -29,7 +29,8 @@ function showCurrentTime(currentTime) {
   let month = months[monthIndex];
   return `${day} ${date} <br /> ${month}  <br /> <small><small><small>${hours}:${minutes}`;
 }
-function displayForecast() {
+
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["MON", "TUE", "WED", "THU", "FRI", "SAT"];
@@ -53,6 +54,13 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
   console.log(forecastHTML);
+}
+
+function getForecast(coordinates) {
+  let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
+  let units = "imperial";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+  axois.ger(apiUrl).then(displayForecast);
 }
 
 function displayWeather(response) {
@@ -144,4 +152,3 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
-displayForecast();
