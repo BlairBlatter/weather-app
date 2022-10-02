@@ -77,6 +77,7 @@ function getForecast(coordinates) {
 }
 
 function displayWeather(response) {
+  let city = document.querySelector("#city-input").value;
   document.querySelector("#city-name").innerHTML = response.data.name;
   document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -129,13 +130,17 @@ function displayWeather(response) {
   getForecast(response.data.coord);
 }
 
-function search(event) {
-  event.preventDefault();
+function search(city) {
   let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
-  let city = document.querySelector("#city-input").value;
   let units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayWeather);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
 }
 
 let dateElement = document.querySelector("#current-date");
@@ -144,4 +149,5 @@ let currentTime = new Date();
 dateElement.innerHTML = showCurrentTime(currentTime);
 
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", search);
+searchForm.addEventListener("submit", handleSubmit);
+search("dallas");
