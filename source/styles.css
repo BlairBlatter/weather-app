@@ -69,7 +69,7 @@ li {
 .current-temperature {
   margin: 0;
   padding: 0px 0px 40px 0px;
-  color: #f4dd12;
+  color: #f9aeec;
   font-size: 105px;
   line-height: 1;
   font-weight: lighter;
@@ -88,8 +88,9 @@ li {
 }
 
 .current-icon {
-  color: #f4dd12;
+  color: #f9aeec;
   font-size: 90px;
+  padding: 0px 0px 0px 80px;
 }
 
 .weather-forecast {
