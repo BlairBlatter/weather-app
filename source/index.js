@@ -43,6 +43,8 @@ function displayForecast(response) {
 
   let forecastElement = document.querySelector("#forecast");
 
+  let forecastIcon = document.querySelector("#forecast-icon");
+
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
@@ -51,7 +53,8 @@ function displayForecast(response) {
         `
       <div class="col-2">
         <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
-       <i class="bi bi-sun"></i>
+       <div class="weather-forecast-icon" id="forecast-icon">${forecastIcon}
+        </div>
         <div class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-max"> ${Math.round(
             forecastDay.temp.max
@@ -67,6 +70,20 @@ function displayForecast(response) {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+
+  let forecastDescription = forecastDay.weather[0].description;
+  if (forecastDescription === "clear sky") {
+    forecastIcon.innerHTML = '<i class="bi bi-sun"></i>';
+  }
+  if (forecastDescription === "overcast clouds") {
+    forecastIcon.innerHTML = '<i class="bi bi-clouds"></i>';
+  }
+  if (forecastDescription === "moderate rain") {
+    forecastIcon.innerHTML = '<i class="bi bi-cloud-rain-heavy"></i>';
+  }
 }
 
 function getForecast(coordinates) {
