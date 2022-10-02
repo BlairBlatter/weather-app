@@ -43,8 +43,6 @@ function displayForecast(response) {
 
   let forecastElement = document.querySelector("#forecast");
 
-  let forecastIcon = document.querySelector("#forecast-icon");
-
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
@@ -53,7 +51,7 @@ function displayForecast(response) {
         `
       <div class="col-2">
         <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
-       <div class="weather-forecast-icon" id="forecast-icon">${forecastIcon}
+       <div class="weather-forecast-icon forecast-icon">
         </div>
         <div class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-max"> ${Math.round(
@@ -71,19 +69,43 @@ function displayForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-
-  let forecastDescription = forecastDay.weather[0].description;
-  if (forecastDescription === "clear sky") {
-    forecastIcon.innerHTML = '<i class="bi bi-sun"></i>';
-  }
-  if (forecastDescription === "overcast clouds") {
-    forecastIcon.innerHTML = '<i class="bi bi-clouds"></i>';
-  }
-  if (forecastDescription === "moderate rain") {
-    forecastIcon.innerHTML = '<i class="bi bi-cloud-rain-heavy"></i>';
-  }
+  let forecastIcon = document.querySelectorAll(".forecast-icon");
+  forecast.forEach((el, index) => {
+    if (index < 6) {
+      let forecastDescription = el.weather[0].description;
+      if (forecastDescription === "clear sky") {
+        forecastIcon[index].innerHTML = '<i class="bi bi-sun"></i>';
+      }
+      if (forecastDescription === "overcast clouds") {
+        forecastIcon[index].innerHTML = '<i class="bi bi-clouds"></i>';
+      }
+      if (forecastDescription === "moderate rain") {
+        forecastIcon[index].innerHTML =
+          '<i class="bi bi-cloud-rain-heavy"></i>';
+      }
+      if (forecastDescription === "light rain") {
+        forecastIcon[index].innerHTML = '<i class="bi bi-cloud-drizzle"></i>';
+      }
+      if (forecastDescription === "thunderestorm") {
+        forecastIcon[index].innerHTML = '<i class="bi bi-lightning"></i>';
+      }
+      if (forecastDescription === "fog") {
+        forecastIcon[index].innerHTML = '<i class="bi bi-cloud-fog"></i>';
+      }
+      if (forecastDescription === "wind") {
+        forecastIcon[index].innerHTML = '<i class="bi bi-wind"></i>';
+      }
+      if (forecastDescription === "few clouds") {
+        forecastIcon[index].innerHTML = '<i class="bi bi-cloud"></i>';
+      }
+      if (forecastDescription === "broken clouds") {
+        forecastIcon[index].innerHTML = '<i class="bi bi-cloud"></i>';
+      }
+      if (forecastDescription === "snow") {
+        forecastIcon[index].innerHTML = '<i class="bi bi-snow"></i>';
+      }
+    }
+  });
 }
 
 function getForecast(coordinates) {
