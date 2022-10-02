@@ -104,6 +104,19 @@ function displayForecast(response) {
       if (forecastDescription === "snow") {
         forecastIcon[index].innerHTML = '<i class="bi bi-snow"></i>';
       }
+      if (forecastDescription === "drizzle") {
+        forecastIcon[index].innerHTML = '<i class="bi bi-cloud-drizzle"></i>';
+      }
+      if (forecastDescription === "partly cloudy") {
+        forecastIcon[index].innerHTML = '<i class="bi bi-cloud-sun"></i>';
+      }
+      if (forecastDescription === "shower rain") {
+        forecastIcon[index].innerHTML =
+          '<i class="bi bi-cloud-rain-heavy"></i>';
+      }
+      if (forecastDescription === "light intensity drizzle") {
+        forecastIcon[index].innerHTML = '<i class="bi bi-cloud-drizzle"></i>';
+      }
     }
   });
 }
